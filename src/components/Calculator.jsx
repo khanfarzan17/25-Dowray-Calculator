@@ -4,9 +4,9 @@ import toast, { Toaster } from "react-hot-toast";
 import Heading from "./Heading";
 
 const DowryCalculator = () => {
-  const [groomAge, setgroomAge] = useState(0);
+  const [groomAge, setgroomAge] = useState("");
   const [educationLevel, setEducationLevel] = useState("");
-  const [familyWealth, setFamilyWealth] = useState(0);
+  const [familyWealth, setFamilyWealth] = useState("");
   const [groomCategory, setGroomCategory] = useState("");
   const [dowry, setDowry] = useState(null);
   const [isReset, setIsReset] = useState(false);
@@ -39,7 +39,7 @@ const DowryCalculator = () => {
       case "Businessman":
         groomCategoryFactor = 30000;
         break;
-      case "Goverment Job ":
+      case "Government Job":
         groomCategoryFactor = 250000;
         break;
       default:
@@ -61,95 +61,108 @@ const DowryCalculator = () => {
 
   const reset = () => {
     setName("");
-    setgroomAge("");
+    setgroomAge(0);
     setEducationLevel("");
-    setDowry("");
-    setFamilyWealth("");
+    setDowry(null);
+    setFamilyWealth(0);
     setGroomCategory("");
     setIsReset(true);
   };
 
   return (
-    <div className="container">
+    <section className="container">
       <Heading />
       <Toaster position="top-center" />
-      <label className="label">
-        Groom's Name:
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="input-field"
-        />
-      </label>
+      <form>
+        <div className="form-group">
+          <label htmlFor="groomName">Groom's Name:</label>
+          <input
+            id="groomName"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="input-field"
+          />
+        </div>
 
-      <label className="label">
-        Groom's Age:
-        <input
-          type="number"
-          value={groomAge}
-          onChange={(e) => setgroomAge(parseInt(e.target.value))}
-          className="input-field"
-          min="0"
-        />
-      </label>
-      <br />
-      <label className="label">
-        Education Level:
-        <select
-          value={educationLevel}
-          onChange={(e) => setEducationLevel(e.target.value)}
-          className="drop-down"
-        >
-          <option value="">Select</option>
-          <option value="HighSchool">High School</option>
-          <option value="Graduate">Graduate</option>
-          <option value="PostGraduate">Post Graduate</option>
-        </select>
-      </label>
-      <br />
-      <label className="label">
-        Family Wealth (₹):
-        <input
-          type="number"
-          value={familyWealth}
-          onChange={(e) => setFamilyWealth(parseFloat(e.target.value))}
-          className="input-field"
-          min="0"
-        />
-      </label>
-      <br />
-      <label className="label">
-        Groom's Category:
-        <select
-          value={groomCategory}
-          onChange={(e) => setGroomCategory(e.target.value)}
-          className="drop-down"
-        >
-          <option value="">Select</option>
-          <option value="Doctor">Doctor</option>
-          <option value="Engineer">Engineer</option>
-          <option value="Businessman">Businessman</option>
-          <option value="Goverment Job ">Government Job</option>
-        </select>
-      </label>
-      <br />
-      <button onClick={calculateDowry} className="calculate-button">
-        Calculate
-      </button>
+        <div className="form-group">
+          <label htmlFor="groomAge">Groom's Age:</label>
+          <input
+            id="groomAge"
+            type="number"
+            value={groomAge}
+            onChange={(e) => setgroomAge(parseInt(e.target.value))}
+            className="input-field"
+            min="0"
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="educationLevel">Education Level:</label>
+          <select
+            id="educationLevel"
+            value={educationLevel}
+            onChange={(e) => setEducationLevel(e.target.value)}
+            className="drop-down"
+          >
+            <option value="">Select</option>
+            <option value="HighSchool">High School</option>
+            <option value="Graduate">Graduate</option>
+            <option value="PostGraduate">Post Graduate</option>
+          </select>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="familyWealth">Family Wealth (₹):</label>
+          <input
+            id="familyWealth"
+            type="number"
+            value={familyWealth}
+            onChange={(e) => setFamilyWealth(parseFloat(e.target.value))}
+            className="input-field"
+            min="0"
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="groomCategory">Groom's Category:</label>
+          <select
+            id="groomCategory"
+            value={groomCategory}
+            onChange={(e) => setGroomCategory(e.target.value)}
+            className="drop-down"
+          >
+            <option value="">Select</option>
+            <option value="Doctor">Doctor</option>
+            <option value="Engineer">Engineer</option>
+            <option value="Businessman">Businessman</option>
+            <option value="Government Job">Government Job</option>
+          </select>
+        </div>
+
+        <div className="button-group">
+          <button
+            type="button"
+            onClick={calculateDowry}
+            className="calculate-button"
+          >
+            Calculate
+          </button>
+          <button type="button" onClick={reset} className="reset-button">
+            Reset
+          </button>
+        </div>
+      </form>
+
       {dowry !== null && !isReset && (
-        <h2>
-          {" "}
-          Congratulation{" "}
-          <span>
-            <p>Estimated Dowry: ₹{dowry}</p>
-          </span>
-        </h2>
+        <section className="result">
+          <h2>
+            Congratulations! <br />
+            <span>Estimated Dowry: ₹{dowry}</span>
+          </h2>
+        </section>
       )}
-      <button onClick={reset} className="calculate-button">
-        Reset
-      </button>
-    </div>
+    </section>
   );
 };
 

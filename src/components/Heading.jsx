@@ -1,16 +1,11 @@
 import React from "react";
-
+import "../styles/Calculator.css";
 const Heading = () => {
   return (
-    <div>
-      <h3>
-        {" "}
-        Dowry Calculator{" "}
-        <span>
-          <p>Know your Limits !!</p>
-        </span>{" "}
-      </h3>
-    </div>
+    <header className="heading-container">
+      <h1>Dowry Calculator</h1>
+      <p>Know your limits!</p>
+    </header>
   );
 };
 

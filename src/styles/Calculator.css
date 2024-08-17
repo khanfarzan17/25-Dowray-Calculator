@@ -1,110 +1,167 @@
+/* General Styles */
 body {
-  background-color: #e8f0fe;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
   font-family: 'Arial', sans-serif;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(145deg, #1e1e2f, #111123);
+  color: #f4f4f4;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
-  background: #ffffff;
-  padding: 25px 35px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  max-width: 420px;
-  width: 100%;
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(145deg, #2a2a3b, #1a1a2b);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+h1,
+h2,
+p {
   text-align: center;
-  transform: translateY(0);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #e1e1e1;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #c9c9ff;
+}
+
+p {
+  font-size: 1rem;
+  color: #a9a9bf;
+}
+
+/* Heading Styles */
+.heading-container {
+  margin-bottom: 2rem;
+}
+
+.heading-container h1 {
+  margin: 0;
+  font-weight: 700;
+  background: linear-gradient(145deg, #ff7e5f, #feb47b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heading-container p {
+  font-size: 1.1rem;
+  color: #b1b1e0;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 1.5rem;
 }
 
 .label {
   display: block;
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #555;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #b1b1e0;
 }
 
 .input-field,
-.drop-down,
-button {
+.drop-down {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 18px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  padding: 0.75rem;
+  font-size: 1rem;
+  background: #2a2a3b;
+  border: 1px solid #444455;
+  color: #f4f4f4;
+  border-radius: 5px;
 }
 
 .input-field:focus,
-.drop-down:focus,
-button:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+.drop-down:focus {
   outline: none;
+  border-color: #6a6aff;
+  box-shadow: 0 0 5px rgba(106, 106, 255, 0.7);
 }
 
-button {
-  background-color: #031c36;
+/* Button Styles */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.calculate-button,
+.reset-button {
+  background: linear-gradient(145deg, #3a3a50, #2a2a3b);
   color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
   border: none;
-  cursor: pointer;
-  font-weight: bold;
-  padding: 12px;
-  border-radius: 6px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-button:hover {
-  background-color: #007bff;
-}
-
-h2 {
-  margin-top: 0;
-  color: #333;
-  font-size: 26px;
-}
-
-h3 {
-  font-size: 20px;
-  color: #16222e;
-  margin: 15px 0;
-}
-
-input[type="text"], 
-input[type="email"], 
-input[type="password"], 
-select, 
-textarea {
-  width: calc(100% - 20px);
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
   border-radius: 5px;
-  font-size: 14px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  flex: 1;
+  margin: 0 0.5rem;
+  text-align: center;
 }
 
-input[type="text"]:focus, 
-input[type="email"]:focus, 
-input[type="password"]:focus, 
-select:focus, 
-textarea:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
-  outline: none;
+.calculate-button:hover,
+.reset-button:hover {
+  background: linear-gradient(145deg, #474760, #2a2a3b);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
 }
 
-.container:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  transform: translateY(-5px);
+.result {
+  margin-top: 2rem;
+  text-align: center;
+  font-weight: bold;
 }
 
-button:active {
-  transform: translateY(-1px);
+.result span {
+  font-size: 1.25rem;
+  color: #ffd700;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  .calculate-button,
+  .reset-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.75rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .input-field,
+  .drop-down {
+    font-size: 0.875rem;
+  }
+
+  .calculate-button,
+  .reset-button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
 }
