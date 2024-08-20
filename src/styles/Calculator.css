@@ -1,167 +1,154 @@
-/* General Styles */
+/* Calculator.css */
+
 body {
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(145deg, #1e1e2f, #111123);
-  color: #f4f4f4;
   margin: 0;
-  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, rgba(31, 41, 55, 0.9), rgba(17, 24, 39, 0.9));
 }
 
 .container {
-  max-width: 500px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: linear-gradient(145deg, #2a2a3b, #1a1a2b);
-  border-radius: 10px;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 15px;
+  background: rgba(31, 41, 55, 0.8);
+  border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-h1,
-h2,
-p {
-  text-align: center;
-}
-
-h1 {
-  font-size: 2rem;
-  color: #e1e1e1;
-}
-
-h2 {
-  font-size: 1.5rem;
-  color: #c9c9ff;
-}
-
-p {
-  font-size: 1rem;
-  color: #a9a9bf;
-}
-
-/* Heading Styles */
 .heading-container {
-  margin-bottom: 2rem;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 .heading-container h1 {
+  font-size: 1.8em;
+  color: #f9fafb;
   margin: 0;
-  font-weight: 700;
-  background: linear-gradient(145deg, #ff7e5f, #feb47b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .heading-container p {
-  font-size: 1.1rem;
-  color: #b1b1e0;
+  color: rgba(243, 244, 246, 0.8);
+  font-size: 0.9em;
 }
 
-/* Form Styles */
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 12px;
 }
 
-.label {
+.form-group label {
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 4px;
   font-weight: bold;
-  color: #b1b1e0;
+  color: #e5e7eb;
 }
 
-.input-field,
-.drop-down {
+.input-field, .drop-down {
   width: 100%;
-  padding: 0.75rem;
-  font-size: 1rem;
-  background: #2a2a3b;
-  border: 1px solid #444455;
-  color: #f4f4f4;
-  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #4b5563;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #1f2937;
+  color: #f9fafb;
 }
 
-.input-field:focus,
-.drop-down:focus {
+.input-field:focus, .drop-down:focus {
+  border-color: #3b82f6;
+  background-color: #374151;
   outline: none;
-  border-color: #6a6aff;
-  box-shadow: 0 0 5px rgba(106, 106, 255, 0.7);
 }
 
-/* Button Styles */
 .button-group {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-.calculate-button,
-.reset-button {
-  background: linear-gradient(145deg, #3a3a50, #2a2a3b);
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
+.calculate-button, .reset-button {
+  padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
+  color: #f9fafb;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  flex: 1;
-  margin: 0 0.5rem;
-  text-align: center;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
 }
 
-.calculate-button:hover,
+.calculate-button {
+  background-color: #10b981;
+}
+
+.calculate-button:hover {
+  background-color: #059669;
+}
+
+.reset-button {
+  background-color: #ef4444;
+}
+
 .reset-button:hover {
-  background: linear-gradient(145deg, #474760, #2a2a3b);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  background-color: #dc2626;
 }
 
 .result {
-  margin-top: 2rem;
+  margin-top: 15px;
   text-align: center;
-  font-weight: bold;
+}
+
+.result h2 {
+  font-size: 1.2em;
+  color: #f9fafb;
+  margin: 0;
 }
 
 .result span {
-  font-size: 1.25rem;
-  color: #ffd700;
+  font-size: 1.3em;
+  color: #3b82f6;
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
   .container {
-    padding: 1rem;
+    padding: 12px;
   }
 
-  h1 {
-    font-size: 1.75rem;
+  .heading-container h1 {
+    font-size: 1.5em;
   }
 
-  h2 {
-    font-size: 1.25rem;
+  .heading-container p {
+    font-size: 0.85em;
   }
 
-  .calculate-button,
-  .reset-button {
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
+  .button-group {
+    flex-direction: column;
+  }
+
+  .calculate-button, .reset-button {
+    width: 100%;
+    margin-bottom: 5px;
   }
 }
 
 @media (max-width: 480px) {
   .container {
-    padding: 0.75rem;
+    padding: 10px;
   }
 
-  h1 {
-    font-size: 1.5rem;
+  .heading-container h1 {
+    font-size: 1.4em;
   }
 
-  .input-field,
-  .drop-down {
-    font-size: 0.875rem;
+  .heading-container p {
+    font-size: 0.75em;
   }
 
-  .calculate-button,
-  .reset-button {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.875rem;
+  .input-field, .drop-down {
+    padding: 8px;
+  }
+
+  .calculate-button, .reset-button {
+    padding: 8px;
+    font-size: 12px;
   }
 }

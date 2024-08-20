@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/Calculator.css";
-import toast, { Toaster } from "react-hot-toast";
+
 import Heading from "./Heading";
 
 const DowryCalculator = () => {
@@ -19,7 +19,6 @@ const DowryCalculator = () => {
       !educationLevel ||
       !groomCategory
     ) {
-      toast.error("Please fill out all fields correctly.");
       return;
     }
 
@@ -53,8 +52,6 @@ const DowryCalculator = () => {
       wealthFactor +
       groomCategoryFactor;
 
-    toast.success("Dowry Calculated Successfully");
-
     setDowry(totalDowry);
     setIsReset(false);
   };
@@ -72,7 +69,7 @@ const DowryCalculator = () => {
   return (
     <section className="container">
       <Heading />
-      <Toaster position="top-center" />
+
       <form>
         <div className="form-group">
           <label htmlFor="groomName">Groom's Name:</label>
